@@ -11,5 +11,7 @@ BUAA electricity charge checker on Android / 北航电费查询器（安卓平�
 
 3、本APP遵循GPL-3.0协议，冲突另议。
 
+4、其它疑问请通过issue提出。
+
 ## 编译说明
-Ubuntu 18.04，使用buildozer编译，详见buildozer.spec文件。
+环境为Ubuntu 18.04，使用buildozer编译，详见buildozer.spec文件。
