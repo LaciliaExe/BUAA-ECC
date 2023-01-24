@@ -1,0 +1,137 @@
+<MainWidget>:
+    orientation: "vertical"
+    padding: "10dp"
+    spacing: '20dp'
+    BoxLayout:
+        size_hint: 1, 0.4
+        orientation: "vertical"
+        spacing: '10dp'
+        Label:
+            text: '设置：电表号'
+            font_name: 'Font_Hanzi'
+            size_hint: 1, 1/8
+        BoxLayout:
+            size_hint: 1, 2/8
+            Label:
+                text: "照明"
+                font_name: 'Font_Hanzi'
+                font_size: '15dp'
+                size_hint: 0.5, 1
+            TextInput:
+                id: light
+                font_size: '15dp'
+                halign: 'center'
+                multiline: False
+        BoxLayout:
+            size_hint: 1, 2/8
+            Label:
+                text: "空调"
+                font_name: 'Font_Hanzi'
+                font_size: '15dp'
+                size_hint: 0.5, 1
+            TextInput:
+                id: aircond
+                font_size: '15dp'
+                halign: 'center'
+                multiline: False
+        Label:
+            text: '设置：报警阈值（度）'
+            font_name: 'Font_Hanzi'
+            size_hint: 1, 1/8
+        BoxLayout:
+            size_hint: 1, 2/8
+            Label:
+                text: "照明"
+                font_name: 'Font_Hanzi'
+                font_size: '15dp'
+                size_hint: 0.5, 1
+            TextInput:
+                id: thres_light
+                text: "10"
+                font_size: '15dp'
+                halign: 'center'
+                multiline: False
+        BoxLayout:
+            size_hint: 1, 2/8
+            Label:
+                text: "空调"
+                font_name: 'Font_Hanzi'
+                font_size: '15dp'
+                size_hint: 0.5, 1
+            TextInput:
+                id: thres_aircond
+                text: "15"
+                font_size: '15dp'
+                halign: 'center'
+                multiline: False
+    BoxLayout:
+        size_hint: 1, 0.1
+        CheckBox:
+            id: checkbox_bg
+            active: False
+            # disabled: True
+            size_hint: 0.1, 1
+        Label:
+            text: '后台监测'
+            font_name: 'Font_Hanzi'
+            size_hint: 0.3, 1
+        Button:
+            size_hint: 0.6, 1
+            pos_hint: {'center_x':0.5}
+            text: "查询"
+            font_name: 'Font_Hanzi'
+            font_size: '20dp'
+            color: 1,0,0,1
+            on_release: root.manual_check()
+    Label:
+        id: info_label
+        font_name: 'Font_Hanzi'
+        # text_size: self.width, None
+        size_hint: 1, 0.1
+    Label:
+        size_hint: 1, 0.3
+    Button:
+        text: "使用说明"
+        font_name: 'Font_Hanzi'
+        size_hint: 1, 0.1
+        on_release: root.show_infoPopup()
+
+<infoPopup>:
+    title: '使用说明'
+    title_font: 'Font_Hanzi'
+    size_hint: 0.9, 0.9
+    BoxLayout:
+        orientation: "vertical"
+        padding: "10dp"
+        spacing: '20dp'
+        Label:
+            text: '一、概述：本App旨在节省通过扫码或浏览器登录网址输入电表号查询电费的时间，实现一键查询。且通过后台自动监测并发送通知的方式避免因突然停电导致意外损失的尴尬（更糟的是，夜间无法交电费，突然停电将严重影响夜间工作）。正确输入照明、空调电表号后即可手动查询。'
+            font_name: 'Font_Hanzi'
+            font_size: '12dp'
+            text_size: self.width, None
+        Label:
+            text: '二、基本使用方法：正确输入照明、空调电表号后即可手动查询。'
+            font_name: 'Font_Hanzi'
+            font_size: '12dp'
+            text_size: self.width, None
+        Label:
+            text: '三、后台监测：1.每隔8小时自动查询一次剩余电量，若存在低于报警阈值的情况则发出通知。为避免引起目标服务器注意，该时间间隔不可修改。2.为避免被系统清后台，此功能需要在手机设置中将本App设置为“允许后台活动”或同功能的选项。3.返回键（一般为三角或180度箭头）将使App直接退出，若后台监测启用，应该使用home键回到主界面，并最好为App上锁。'
+            font_name: 'Font_Hanzi'
+            font_size: '12dp'
+            text_size: self.width, None
+        Label:
+            text: '四、为避免后台监测意外关闭，可以考虑每日自行手动查询。'
+            font_name: 'Font_Hanzi'
+            font_size: '12dp'
+            text_size: self.width, None
+        Label:
+            text: '五、本APP遵循GPL-3.0协议，冲突另议。仓库地址为https://github.com/LaciliaExe/BUAA-ECC。'
+            font_name: 'Font_Hanzi'
+            font_size: '12dp'
+            text_size: self.width, None
+        Button:
+            text: '关闭'
+            font_name: 'Font_Hanzi'
+            size_hint: 1, None
+            height: '40dp'
+            on_release: root.dismiss()
